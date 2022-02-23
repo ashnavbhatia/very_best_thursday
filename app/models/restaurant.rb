@@ -9,6 +9,10 @@ class Restaurant < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :dishes,
+             :source => :users
+
   # Validations
 
   # Scopes

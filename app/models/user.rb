@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :rests,
+             :through => :dishes,
+             :source => :rests
+
   # Validations
 
   # Scopes
