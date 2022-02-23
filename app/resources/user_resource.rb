@@ -11,4 +11,18 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :rests, resource: RestaurantResource do
+    assign_each do |user, restaurants|
+      restaurants.select do |r|
+        r.id.in?(user.rests.map(&:id))
+      end
+    end
+  end
+
+
+  filter :dish_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:rests).where(:menus => {:dish_id => value})
+    end
+  end
 end

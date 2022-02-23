@@ -16,4 +16,18 @@ class RestaurantResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :users do
+    assign_each do |restaurant, users|
+      users.select do |u|
+        u.id.in?(restaurant.users.map(&:id))
+      end
+    end
+  end
+
+
+  filter :user_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:users).where(:bookmarks => {:user_id => value})
+    end
+  end
 end
