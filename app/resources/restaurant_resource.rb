@@ -9,6 +9,8 @@ class RestaurantResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :neighborhood
+
   has_many   :menus,
              foreign_key: :rest_id
 
