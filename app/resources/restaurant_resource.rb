@@ -9,6 +9,9 @@ class RestaurantResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :menus,
+             foreign_key: :rest_id
+
   # Indirect associations
 
 end

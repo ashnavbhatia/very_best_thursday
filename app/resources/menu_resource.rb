@@ -7,6 +7,9 @@ class MenuResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :rest,
+             resource: RestaurantResource
+
   # Indirect associations
 
 end
