@@ -2,23 +2,23 @@ class Dish < ApplicationRecord
   # Direct associations
 
   belongs_to :meal,
-             :class_name => "MealType"
+             class_name: "MealType"
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :menus,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :rests,
-             :through => :menus,
-             :source => :rest
+             through: :menus,
+             source: :rest
 
   has_many   :users,
-             :through => :bookmarks,
-             :source => :user
+             through: :bookmarks,
+             source: :user
 
   # Validations
 
@@ -27,5 +27,4 @@ class Dish < ApplicationRecord
   def to_s
     meal.to_s
   end
-
 end

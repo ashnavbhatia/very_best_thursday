@@ -7,7 +7,7 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :bookmarks
+  has_many :bookmarks
 
   # Indirect associations
 
@@ -21,10 +21,9 @@ class UserResource < ApplicationResource
     end
   end
 
-
   filter :dish_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:rests).where(:menus => {:dish_id => value})
+      scope.eager_load(:rests).where(menus: { dish_id: value })
     end
   end
 end

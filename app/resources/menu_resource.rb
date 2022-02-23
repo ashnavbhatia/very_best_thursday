@@ -13,5 +13,4 @@ class MenuResource < ApplicationResource
              resource: RestaurantResource
 
   # Indirect associations
-
 end

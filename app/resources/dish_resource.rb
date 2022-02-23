@@ -19,5 +19,4 @@ class DishResource < ApplicationResource
                resource: RestaurantResource
 
   many_to_many :users
-
 end

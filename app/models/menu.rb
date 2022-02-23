@@ -4,7 +4,7 @@ class Menu < ApplicationRecord
   belongs_to :dish
 
   belongs_to :rest,
-             :class_name => "Restaurant"
+             class_name: "Restaurant"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Menu < ApplicationRecord
   def to_s
     rest.to_s
   end
-
 end

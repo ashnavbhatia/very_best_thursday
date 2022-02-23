@@ -13,7 +13,7 @@ class Api::V1::MealTypesController < Api::V1::GraphitiController
     meal_type = MealTypeResource.build(params)
 
     if meal_type.save
-      render jsonapi: meal_type, status: 201
+      render jsonapi: meal_type, status: :created
     else
       render jsonapi_errors: meal_type
     end
@@ -33,7 +33,7 @@ class Api::V1::MealTypesController < Api::V1::GraphitiController
     meal_type = MealTypeResource.find(params)
 
     if meal_type.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: meal_type
     end

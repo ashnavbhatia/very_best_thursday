@@ -4,18 +4,18 @@ class Restaurant < ApplicationRecord
   belongs_to :neighborhood
 
   has_many   :menus,
-             :foreign_key => "rest_id",
-             :dependent => :destroy
+             foreign_key: "rest_id",
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :dishes,
-             :through => :menus,
-             :source => :dish
+             through: :menus,
+             source: :dish
 
   has_many   :users,
-             :through => :dishes,
-             :source => :users
+             through: :dishes,
+             source: :users
 
   # Validations
 
@@ -24,5 +24,4 @@ class Restaurant < ApplicationRecord
   def to_s
     dish_id
   end
-
 end

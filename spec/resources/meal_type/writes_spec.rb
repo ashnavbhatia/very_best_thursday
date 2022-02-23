@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe MealTypeResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'meal_types',
-          attributes: { }
-        }
+          type: "meal_types",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe MealTypeResource, type: :resource do
       MealTypeResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { MealType.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { MealType.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:meal_type) { create(:meal_type) }
 
     let(:payload) do
       {
         data: {
           id: meal_type.id.to_s,
-          type: 'meal_types',
-          attributes: { } # Todo!
-        }
+          type: "meal_types",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe MealTypeResource, type: :resource do
       MealTypeResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { meal_type.reload.updated_at }
+      end.to change { meal_type.reload.updated_at }
       # .and change { meal_type.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:meal_type) { create(:meal_type) }
 
     let(:instance) do
       MealTypeResource.find(id: meal_type.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { MealType.count }.by(-1)
+      end.to change { MealType.count }.by(-1)
     end
   end
 end

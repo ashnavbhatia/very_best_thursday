@@ -10,5 +10,4 @@ class MealTypeResource < ApplicationResource
              foreign_key: :meal_id
 
   # Indirect associations
-
 end
