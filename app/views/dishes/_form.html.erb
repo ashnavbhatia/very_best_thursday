@@ -1,0 +1,31 @@
+<% was_validated = dish.errors.any? %>
+
+<%= form_with(model: dish, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for meal_id start -->
+  <div class="form-group">
+    <% meal_class = "form-control" %>
+    <% meal_was_invalid = dish.errors.include?(:meal) %>
+
+    <% if was_validated %>
+      <% if meal_was_invalid %>
+        <% meal_class << " is-invalid" %>
+      <% else %>
+        <% meal_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :meal_id %>
+    <!-- Input for meal_id start -->
+    <%= f.number_field :meal_id, class: meal_class, placeholder: "Enter meal" %>
+    <!-- Input for meal_id end -->
+    <% if meal_was_invalid %>
+      <% dish.errors.full_messages_for(:meal).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for meal_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
