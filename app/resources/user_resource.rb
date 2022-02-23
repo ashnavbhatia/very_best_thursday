@@ -11,6 +11,8 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :dishes
+
   has_many :rests, resource: RestaurantResource do
     assign_each do |user, restaurants|
       restaurants.select do |r|
