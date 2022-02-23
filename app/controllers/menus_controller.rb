@@ -3,7 +3,7 @@ class MenusController < ApplicationController
 
   # GET /menus
   def index
-    @menus = Menu.all
+    @menus = Menu.page(params[:page]).per(10)
   end
 
   # GET /menus/1
