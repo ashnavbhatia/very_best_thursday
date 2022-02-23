@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Rest</dt>
-      <!-- Display rest_id start -->
       <dd>
         <% if @menu.rest.present? %>
           <%= link_to menu.rest, menu.rest %>
         <% end %>
       </dd>
-      <!-- Display rest_id end -->
 
       <dt>Dish</dt>
-      <!-- Display dish_id start -->
       <dd>
         <% if @menu.dish.present? %>
           <%= link_to menu.dish, menu.dish %>
         <% end %>
       </dd>
-      <!-- Display dish_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back menu, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link menu start -->
       <div class="col">
         <%= link_to edit_menu_url(menu), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link menu end -->
 
-      <!-- Delete link menu start -->
       <div class="col">
         <%= link_to menu, method: :delete, data: { confirm: "Do you really want to delete this menu?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link menu end -->
     </div>
   </div>
 

@@ -6,28 +6,20 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Dish</dt>
-      <!-- Display dish_id start -->
       <dd><%= restaurant.dish_id %></dd>
-      <!-- Display dish_id end -->
 
       <dt>Address</dt>
-      <!-- Display address start -->
       <dd><%= restaurant.address %></dd>
-      <!-- Display address end -->
 
       <dt>Neighborhood</dt>
-      <!-- Display neighborhood_id start -->
       <dd>
         <% if @restaurant.neighborhood.present? %>
           <%= link_to restaurant.neighborhood, restaurant.neighborhood %>
         <% end %>
       </dd>
-      <!-- Display neighborhood_id end -->
 
       <dt>Google maps url</dt>
-      <!-- Display google_maps_url start -->
       <dd><%= restaurant.google_maps_url %></dd>
-      <!-- Display google_maps_url end -->
 
     </dl>
 
@@ -36,21 +28,17 @@
         <%= link_to_show_or_back restaurant, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link restaurant start -->
       <div class="col">
         <%= link_to edit_restaurant_url(restaurant), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link restaurant end -->
 
-      <!-- Delete link restaurant start -->
       <div class="col">
         <%= link_to restaurant, method: :delete, data: { confirm: "Do you really want to delete this restaurant?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link restaurant end -->
     </div>
   </div>
 

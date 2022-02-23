@@ -6,9 +6,7 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Dish</dt>
-      <!-- Display dish_id start -->
       <dd><%= meal_type.dish_id %></dd>
-      <!-- Display dish_id end -->
 
     </dl>
 
@@ -17,21 +15,17 @@
         <%= link_to_show_or_back meal_type, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link meal_type start -->
       <div class="col">
         <%= link_to edit_meal_type_url(meal_type), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link meal_type end -->
 
-      <!-- Delete link meal_type start -->
       <div class="col">
         <%= link_to meal_type, method: :delete, data: { confirm: "Do you really want to delete this meal_type?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link meal_type end -->
     </div>
   </div>
 
