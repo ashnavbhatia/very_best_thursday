@@ -16,7 +16,7 @@
 
     <%= f.label :rest_id %>
     <!-- Input for rest_id start -->
-    <%= f.number_field :rest_id, class: rest_class, placeholder: "Enter rest" %>
+    <%= f.collection_select :rest_id, Restaurant.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for rest_id end -->
     <% if rest_was_invalid %>
       <% menu.errors.full_messages_for(:rest).each do |message| %>
