@@ -6,6 +6,9 @@ class DishResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :meal,
+             resource: MealTypeResource
+
   has_many   :bookmarks
 
   has_many   :menus

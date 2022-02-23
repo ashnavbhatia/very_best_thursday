@@ -6,6 +6,9 @@ class MealTypeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :dishes,
+             foreign_key: :meal_id
+
   # Indirect associations
 
 end
