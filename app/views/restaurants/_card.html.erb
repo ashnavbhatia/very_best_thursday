@@ -17,7 +17,11 @@
 
       <dt>Neighborhood</dt>
       <!-- Display neighborhood_id start -->
-      <dd><%= restaurant.neighborhood_id %></dd>
+      <dd>
+        <% if @restaurant.neighborhood.present? %>
+          <%= link_to restaurant.neighborhood, restaurant.neighborhood %>
+        <% end %>
+      </dd>
       <!-- Display neighborhood_id end -->
 
       <dt>Google maps url</dt>

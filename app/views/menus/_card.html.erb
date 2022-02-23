@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Rest</dt>
       <!-- Display rest_id start -->
-      <dd><%= menu.rest_id %></dd>
+      <dd>
+        <% if @menu.rest.present? %>
+          <%= link_to menu.rest, menu.rest %>
+        <% end %>
+      </dd>
       <!-- Display rest_id end -->
 
       <dt>Dish</dt>
       <!-- Display dish_id start -->
-      <dd><%= menu.dish_id %></dd>
+      <dd>
+        <% if @menu.dish.present? %>
+          <%= link_to menu.dish, menu.dish %>
+        <% end %>
+      </dd>
       <!-- Display dish_id end -->
 
     </dl>
