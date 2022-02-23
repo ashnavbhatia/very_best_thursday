@@ -1,6 +1,8 @@
 class Menu < ApplicationRecord
   # Direct associations
 
+  belongs_to :dish
+
   belongs_to :rest,
              :class_name => "Restaurant"
 
