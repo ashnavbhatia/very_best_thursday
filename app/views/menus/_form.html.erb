@@ -1,0 +1,57 @@
+<% was_validated = menu.errors.any? %>
+
+<%= form_with(model: menu, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for rest_id start -->
+  <div class="form-group">
+    <% rest_class = "form-control" %>
+    <% rest_was_invalid = menu.errors.include?(:rest) %>
+
+    <% if was_validated %>
+      <% if rest_was_invalid %>
+        <% rest_class << " is-invalid" %>
+      <% else %>
+        <% rest_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :rest_id %>
+    <!-- Input for rest_id start -->
+    <%= f.number_field :rest_id, class: rest_class, placeholder: "Enter rest" %>
+    <!-- Input for rest_id end -->
+    <% if rest_was_invalid %>
+      <% menu.errors.full_messages_for(:rest).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for rest_id end -->
+  <!-- Label and input for dish_id start -->
+  <div class="form-group">
+    <% dish_class = "form-control" %>
+    <% dish_was_invalid = menu.errors.include?(:dish) %>
+
+    <% if was_validated %>
+      <% if dish_was_invalid %>
+        <% dish_class << " is-invalid" %>
+      <% else %>
+        <% dish_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :dish_id %>
+    <!-- Input for dish_id start -->
+    <%= f.number_field :dish_id, class: dish_class, placeholder: "Enter dish" %>
+    <!-- Input for dish_id end -->
+    <% if dish_was_invalid %>
+      <% menu.errors.full_messages_for(:dish).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for dish_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
