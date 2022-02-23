@@ -12,6 +12,10 @@ class Dish < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :rests,
+             :through => :menus,
+             :source => :rest
+
   has_many   :users,
              :through => :bookmarks,
              :source => :user
