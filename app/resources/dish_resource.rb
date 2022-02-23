@@ -15,6 +15,9 @@ class DishResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :rests,
+               resource: RestaurantResource
+
   many_to_many :users
 
 end
