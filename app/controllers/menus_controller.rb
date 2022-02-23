@@ -24,7 +24,12 @@ class MenusController < ApplicationController
     @menu = Menu.new(menu_params)
 
     if @menu.save
-      redirect_to @menu, notice: 'Menu was successfully created.'
+      message = 'Menu was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @menu, notice: message
+      end
     else
       render :new
     end

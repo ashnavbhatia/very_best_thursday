@@ -1,0 +1,12 @@
+<!-- Form dish start -->
+<%= form_with(model: @dish, local: true) do |f| %>
+<!-- Form dish end -->
+
+  <!-- Label and input for meal_id start -->
+  <!-- Input for meal_id start -->
+  <%= f.hidden_field :meal_id, value: @meal_type.id %>
+  <!-- Input for meal_id end -->
+  <!-- Label and input for meal_id end -->
+
+  <%= f.submit "Create dish", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

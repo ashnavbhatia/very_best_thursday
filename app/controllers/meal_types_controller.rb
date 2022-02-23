@@ -8,6 +8,7 @@ class MealTypesController < ApplicationController
 
   # GET /meal_types/1
   def show
+    @dish = Dish.new
   end
 
   # GET /meal_types/new

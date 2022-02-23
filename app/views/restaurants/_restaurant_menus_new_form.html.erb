@@ -1,0 +1,22 @@
+<!-- Form menu start -->
+<%= form_with(model: @menu, local: true) do |f| %>
+<!-- Form menu end -->
+
+  <!-- Label and input for rest_id start -->
+  <!-- Input for rest_id start -->
+  <%= f.hidden_field :rest_id, value: @restaurant.id %>
+  <!-- Input for rest_id end -->
+  <!-- Label and input for rest_id end -->
+
+  <!-- Label and input for dish_id start -->
+  <div class="form-group">
+    <%= f.label :dish_id %>
+
+    <!-- Input for dish_id start -->
+    <%= f.text_field :dish_id, class: "form-control" %>
+    <!-- Input for dish_id end -->
+  </div>
+  <!-- Label and input for dish_id end -->
+
+  <%= f.submit "Create menu", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
