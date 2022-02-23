@@ -6,6 +6,8 @@ class DishResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :menus
+
   # Indirect associations
 
 end
