@@ -3,7 +3,8 @@ class MenusController < ApplicationController
 
   # GET /menus
   def index
-    @menus = Menu.page(params[:page]).per(10)
+    @q = Menu.ransack(params[:q])
+    @menus = @q.result(:distinct => true).includes(:rest, :dish).page(params[:page]).per(10)
   end
 
   # GET /menus/1
